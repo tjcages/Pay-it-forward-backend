@@ -40,6 +40,8 @@ Navigate to the project's `functions` directory. Open `package.json` and replace
 
 3. Copy the contents of `index.js` found in the `functions` directory, [here](https://github.com/tjcages/Pay-it-forward-backend/blob/main/functions/index.js)
 
+This is where the magic happens.
+
 4. Create a secrets file to store Stripe keys
 
 In the project's `functions` directory, create a `.env` file. This file stores your secret values that should not be uploaded or stored on any public servers.
