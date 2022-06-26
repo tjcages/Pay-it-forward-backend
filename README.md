@@ -38,7 +38,9 @@ Navigate to the project's base directory. Open `package.json` and replace with t
 
 Navigate to the project's `functions` directory. Open `package.json` and replace with the file contents located [here](https://github.com/tjcages/Pay-it-forward-backend/blob/main/functions/package.json). Run `npm install` in this directory.
 
-3. Create a secrets file to store Stripe keys
+3. Copy the contents of `index.js` found in the `functions` directory, [here](https://github.com/tjcages/Pay-it-forward-backend/blob/main/functions/index.js)
+
+4. Create a secrets file to store Stripe keys
 
 In the project's `functions` directory, create a `.env` file. This file stores your secret values that should not be uploaded or stored on any public servers.
 
@@ -49,7 +51,7 @@ Add the contents below, replacing `{YOUR KEY HERE}` with your actual key values.
   STRIPE_SECRET_KEY_LIVE="{YOUR LIVE KEY HERE}"
 ```
 
-4. Deploy your Functions to Firebase
+5. Deploy your Functions to Firebase
 
 Before we deploy our functions it's usually a good idea to test via emulators that simulate the functions in a local environment. You can find the details to run these emulators [here](https://firebase.google.com/docs/functions/get-started#emulate-execution-of-your-functions).
 
