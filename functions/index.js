@@ -26,14 +26,14 @@ const db = admin.firestore();
   Just a testing function to export basic logs in the emulator
 */
 exports.test = functions.https.onRequest((req, res) => {
-  console.log("FUCKKK");
   // console.log(process.env.STRIPE_SECRET_KEY_TEST) NEVER deploy with this uncommented (just remove right after testing)
 
   return res.json({ status: "success" });
 });
 
 /*
-  The HTTP API Request to create a new Stripe customer
+  The HTTPS API Request to create a new Stripe customer
+  It's best to handle this as a direct HTTPS request so we are not storing any cc details in our databases
   Must pass all of the query parameters below to construct the customer object
 */
 exports.createStripeCustomer = functions.https.onRequest(async (req, res) => {
@@ -117,6 +117,7 @@ exports.createStripeCustomer = functions.https.onRequest(async (req, res) => {
 /*
   The Firestore Database request to charge a customer's current payment method
   This listens for a database entry request to be created and then updates the db request with the response
+  It's best to handle this through the database rather than a direct request so no unauthorized requests can be made & charge requests are handled entirely serverside
   Query parameters needed: reference id, amount, stripe customer id to be charged, description
 */
 exports.monitorPaymentRequests = functions.firestore
